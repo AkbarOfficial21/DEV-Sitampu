@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">Sistem Dashboard</div>
+    <div class="nav-right">
+      <div class="profile">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="avatar" alt="user">
+        <div class="profile-info">
+          <span id="navName">Nama</span>
+          <small id="navRole">Jabatan Instansi</small>
+        </div>
+      </div>
+      <button class="logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <p id="welcome"></p>
+
+    <!-- Panel Admin -->
+    <div id="adminPanel" class="hidden">
+      <h2>Kelola User</h2>
+      <div class="form-inline">
+        <input id="newUsername" placeholder="Username">
+        <input id="newPassword" placeholder="Password">
+        <input id="newNama" placeholder="Nama">
+        <select id="newJabatan">
+          <option>Admin</option>
+          <option>Validator</option>
+          <option>Operator</option>
+        </select>
+        <input id="newInstansi" placeholder="Instansi">
+        <button onclick="addUser()">Tambah</button>
+      </div>
+
+      <table id="userTable">
+        <thead>
+          <tr><th>Username</th><th>Nama</th><th>Jabatan</th><th>Instansi</th><th>Aksi</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- MODAL EDIT USER -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Edit User</h3>
+      <input type="hidden" id="oldUsername">
+      <input id="editUsername" placeholder="Username">
+      <input id="editPassword" placeholder="Password">
+      <input id="editNama" placeholder="Nama">
+      <select id="editJabatan">
+        <option>Admin</option>
+        <option>Validator</option>
+        <option>Operator</option>
+      </select>
+      <input id="editInstansi" placeholder="Instansi">
+      <div class="modal-actions">
+        <button onclick="saveEdit()">Simpan</button>
+        <button class="cancel" onclick="closeModal()">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
